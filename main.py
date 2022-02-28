@@ -11,8 +11,7 @@ load_dotenv()
 token = os.getenv('TOKEN')
 
 url="https://www.bbc.com/news/live/world-europe-60542877"
-allowed_stop = [395927930057916434, 494203882973429781, 356492770531344387, 494191985712955394, 513696958087430144]
-allowed_eval = [395927930057916434]
+allowed_stop = []
 
 class MyClient(discord.Client):
     async def on_ready(self):
@@ -47,9 +46,7 @@ class MyClient(discord.Client):
                 await asyncio.sleep(60)
             except Exception as e:
                 print(e)
-
         
-    
 
     async def on_message(self, message):
         # don't respond to ourselves
@@ -61,11 +58,7 @@ class MyClient(discord.Client):
         
         elif message.content == '!online':
             await message.channel.send('I am online')
-
-        
-
-        
-            
+    
         
 
     async def fetch_new_post(self):
